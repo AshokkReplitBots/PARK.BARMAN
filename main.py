@@ -344,14 +344,6 @@ class Bot(BaseBot):
             await self.highrise.send_emote("emoji-thumbsup")  
             await self.highrise.send_whisper(user.id,f"[📜] - [deseja mais algum petisco {user.username}?]")
 
-    async def on_whisper(self, user: User, message: str) -> None:
-        print(f"{user.username} whispered: {message}")
-             
-        if              message.startswith("Carteira") or  message.startswith("Wallet") or    message.startswith("wallet") or       message.startswith("carteira"):
-          if user.username == "ShoKytoo":
-            wallet = (await self.highrise.get_wallet()).content
-            await self.highrise.send_whisper(user.id,f"VALOR TOTAL: {wallet[0].amount} {wallet[0].type}")
-
     async def on_user_leave(self, user: User) -> None:
         print(f"{user.username} left the room")
         
